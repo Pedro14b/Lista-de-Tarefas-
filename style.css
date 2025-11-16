@@ -1,0 +1,835 @@
+/* ==============================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   ============================================== */
+
+* {
+    /* 
+       O que: Seletor universal que aplica estilos a TODOS os elementos
+       Como: Remove margens e padding padrão dos navegadores
+       Por que: Garante consistência visual entre diferentes navegadores
+    */
+    margin: 0;           /* Remove espaçamento externo padrão */
+    padding: 0;          /* Remove espaçamento interno padrão */
+    box-sizing: border-box;  
+    /* 
+       O que: Define como largura e altura são calculadas
+       Como: border-box inclui padding e border no tamanho total
+       Por que: Facilita o controle de dimensões dos elementos
+    */
+}
+
+/* ==============================================
+   ESTILIZAÇÃO DO CORPO DA PÁGINA
+   ============================================== */
+
+body {
+    /* 
+       O que: Estilização geral da página
+       Como: Define fonte, fundo gradiente, altura e centralização
+       Por que: Cria a aparência visual de toda a aplicação
+    */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 
+       O que: Define a fonte padrão do texto
+       Como: Lista de fontes alternativas (fallback)
+       Por que: Se a primeira não estiver disponível, usa a próxima
+    */
+    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* 
+       O que: Gradiente de fundo roxo/azul
+       Como: linear-gradient em 135° (diagonal), de azul (#667eea) a roxo (#764ba2)
+       Por que: Cria um fundo moderno e atraente
+    */
+    
+    min-height: 100vh;
+    /* 
+       O que: Altura mínima de 100% da viewport (altura da tela)
+       Como: vh = viewport height, 100vh = tela inteira
+       Por que: Garante que o fundo cubra toda a tela
+    */
+    
+    display: flex;
+    /* 
+       O que: Ativa o Flexbox, sistema moderno de layout
+       Como: Transforma o body em container flex
+       Por que: Facilita centralizar o conteúdo na tela
+    */
+    
+    justify-content: center;
+    /* 
+       O que: Centraliza horizontalmente no Flexbox
+       Como: Alinha o conteúdo no centro do eixo principal
+       Por que: Centraliza a caixa da lista na largura da tela
+    */
+    
+    align-items: center;
+    /* 
+       O que: Centraliza verticalmente no Flexbox
+       Como: Alinha o conteúdo no centro do eixo transversal
+       Por que: Centraliza a caixa da lista na altura da tela
+    */
+    
+    padding: 20px;
+    /* 
+       O que: Espaçamento interno de 20px em todos os lados
+       Como: Cria uma margem de respiro nas bordas
+       Por que: Evita que o conteúdo encoste nas bordas em telas pequenas
+    */
+}
+
+/* ==============================================
+   CONTAINER PRINCIPAL
+   ============================================== */
+
+.container {
+    /* 
+       O que: Caixa branca central que contém toda a aplicação
+       Como: Estiliza a div com classe "container"
+       Por que: Cria uma área destacada sobre o fundo gradiente
+    */
+    background: white;
+    /* Fundo branco para contraste com o gradiente roxo */
+    
+    border-radius: 15px;
+    /* 
+       O que: Arredonda os cantos do container
+       Como: 15px de raio nas bordas
+       Por que: Design moderno e suave
+    */
+    
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    /* 
+       O que: Sombra ao redor do container
+       Como: 
+         - 0: sem deslocamento horizontal
+         - 20px: deslocamento vertical (para baixo)
+         - 60px: desfoque (quanto maior, mais suave)
+         - rgba(0,0,0,0.3): preto com 30% de opacidade
+       Por que: Cria efeito de profundidade e destaque
+    */
+    
+    width: 100%;
+    /* 
+       O que: Largura de 100% do elemento pai
+       Como: Ocupa todo o espaço disponível
+       Por que: Responsivo em telas pequenas
+    */
+    
+    max-width: 550px;
+    /* 
+       O que: Largura máxima de 550px
+       Como: Limita o crescimento em telas grandes
+       Por que: Mantém a aplicação em tamanho confortável para leitura
+    */
+    
+    padding: 30px;
+    /* 
+       O que: Espaçamento interno de 30px
+       Como: Cria respiro entre o conteúdo e as bordas
+       Por que: Evita que o conteúdo fique colado nas bordas
+    */
+}
+
+/* ==============================================
+   TÍTULO PRINCIPAL
+   ============================================== */
+
+h1 {
+    /* 
+       O que: Estilização do título "📝 Minha Lista de Tarefas"
+       Como: Aplica estilos ao elemento h1
+       Por que: Destaca o título da aplicação
+    */
+    color: #333;
+    /* Cor cinza escuro para melhor legibilidade */
+    
+    text-align: center;
+    /* 
+       O que: Centraliza o texto
+       Como: Alinha o texto ao centro do elemento
+       Por que: Deixa o título visualmente equilibrado
+    */
+    
+    margin-bottom: 30px;
+    /* 
+       O que: Espaço de 30px abaixo do título
+       Como: Margem inferior
+       Por que: Separa o título do conteúdo seguinte
+    */
+    
+    font-size: 2rem;
+    /* 
+       O que: Tamanho da fonte de 2rem
+       Como: rem = relativo ao tamanho da fonte raiz (geralmente 16px)
+       Por que: 2rem = 32px, tamanho grande para destaque
+    */
+}
+
+/* ==============================================
+   SEÇÃO DE ENTRADA (INPUT + BOTÃO ADICIONAR)
+   ============================================== */
+
+.input-section {
+    /* 
+       O que: Container que agrupa o campo de texto e botão adicionar
+       Como: Usa Flexbox para posicionar lado a lado
+       Por que: Mantém input e botão alinhados horizontalmente
+    */
+    display: flex;
+    /* Ativa Flexbox para layout flexível */
+    
+    gap: 10px;
+    /* 
+       O que: Espaçamento de 10px entre os elementos filhos
+       Como: Propriedade gap do Flexbox
+       Por que: Separa o input do botão de forma limpa
+    */
+    
+    margin-bottom: 20px;
+    /* Espaço abaixo da seção de entrada */
+}
+
+#taskInput {
+    /* 
+       O que: Estilização do campo de texto onde o usuário digita
+       Como: Seleciona o elemento com id="taskInput"
+       Por que: Personaliza a aparência do input
+    */
+    flex: 1;
+    /* 
+       O que: Faz o input ocupar todo o espaço disponível
+       Como: flex: 1 = crescer para preencher o espaço restante
+       Por que: Input fica maior, botão fica com tamanho fixo
+    */
+    
+    padding: 12px 15px;
+    /* 
+       O que: Espaçamento interno
+       Como: 12px (vertical) 15px (horizontal)
+       Por que: Torna o campo confortável para digitar
+    */
+    
+    border: 2px solid #e0e0e0;
+    /* 
+       O que: Borda sólida cinza claro de 2px
+       Como: border: largura estilo cor
+       Por que: Define os limites visuais do campo
+    */
+    
+    border-radius: 8px;
+    /* Cantos arredondados de 8px */
+    
+    font-size: 16px;
+    /* Tamanho da fonte para boa legibilidade */
+    
+    transition: border-color 0.3s;
+    /* 
+       O que: Animação suave na mudança de cor da borda
+       Como: transition: propriedade duração
+       Por que: Efeito visual suave ao focar no campo
+    */
+}
+
+#taskInput:focus {
+    /* 
+       O que: Estilos aplicados quando o usuário clica no input
+       Como: Pseudo-classe :focus
+       Por que: Feedback visual de que o campo está ativo
+    */
+    outline: none;
+    /* 
+       O que: Remove o contorno padrão do navegador
+       Como: outline: none
+       Por que: Usaremos a borda personalizada em vez disso
+    */
+    
+    border-color: #667eea;
+    /* 
+       O que: Muda a cor da borda para azul/roxo
+       Como: Sobrescreve a cor quando focado
+       Por que: Indica visualmente que o campo está ativo
+    */
+}
+
+#addBtn {
+    /* 
+       O que: Estilização do botão "Adicionar"
+       Como: Seleciona o elemento com id="addBtn"
+       Por que: Cria um botão visualmente atrativo
+    */
+    padding: 12px 25px;
+    /* Espaçamento interno para tamanho confortável */
+    
+    background: #667eea;
+    /* Cor de fundo azul/roxo */
+    
+    color: white;
+    /* Texto branco para contraste */
+    
+    border: none;
+    /* 
+       O que: Remove a borda padrão do botão
+       Como: border: none
+       Por que: Botões HTML têm bordas feias por padrão
+    */
+    
+    border-radius: 8px;
+    /* Cantos arredondados */
+    
+    font-size: 16px;
+    /* Tamanho da fonte */
+    
+    font-weight: 600;
+    /* 
+       O que: Peso da fonte (negrito semi-bold)
+       Como: 600 = semi-negrito (400 = normal, 700 = bold)
+       Por que: Destaca o texto do botão
+    */
+    
+    cursor: pointer;
+    /* 
+       O que: Muda o cursor para mãozinha ao passar sobre o botão
+       Como: cursor: pointer
+       Por que: Indica que o elemento é clicável
+    */
+    
+    transition: background 0.3s;
+    /* Animação suave na mudança de cor de fundo */
+}
+
+#addBtn:hover {
+    /* 
+       O que: Estilos quando o mouse passa sobre o botão
+       Como: Pseudo-classe :hover
+       Por que: Feedback visual interativo
+    */
+    background: #5568d3;
+    /* 
+       O que: Escurece levemente a cor de fundo
+       Como: Tom mais escuro de azul
+       Por que: Indica que o botão é interativo
+    */
+}
+
+/* ==============================================
+   FILTROS (TODAS / ATIVAS / CONCLUÍDAS)
+   ============================================== */
+
+.filters {
+    /* 
+       O que: Container dos botões de filtro
+       Como: Usa Flexbox para alinhar os 3 botões
+       Por que: Organiza os filtros horizontalmente e centralizados
+    */
+    display: flex;
+    gap: 10px;
+    /* Espaço de 10px entre os botões */
+    
+    margin-bottom: 20px;
+    /* Espaço abaixo da seção de filtros */
+    
+    justify-content: center;
+    /* 
+       O que: Centraliza os botões horizontalmente
+       Como: justify-content: center no Flexbox
+       Por que: Deixa os filtros visualmente equilibrados
+    */
+}
+
+.filter-btn {
+    /* 
+       O que: Estilização dos botões de filtro
+       Como: Classe aplicada a todos os 3 botões
+       Por que: Mantém aparência consistente entre os filtros
+    */
+    padding: 8px 16px;
+    /* Espaçamento interno menor que o botão principal */
+    
+    border: 2px solid #e0e0e0;
+    /* Borda cinza clara */
+    
+    background: white;
+    /* Fundo branco por padrão */
+    
+    border-radius: 6px;
+    /* Cantos levemente arredondados */
+    
+    cursor: pointer;
+    /* Cursor de mãozinha ao passar o mouse */
+    
+    font-size: 14px;
+    /* Fonte um pouco menor */
+    
+    transition: all 0.3s;
+    /* 
+       O que: Animação suave em TODAS as propriedades
+       Como: transition: all (todas as propriedades) 0.3s (em 0.3 segundos)
+       Por que: Cria mudanças visuais suaves
+    */
+}
+
+.filter-btn:hover {
+    /* 
+       O que: Efeito ao passar o mouse sobre o filtro
+       Como: Pseudo-classe :hover
+       Por que: Feedback visual de interação
+    */
+    border-color: #667eea;
+    /* 
+       O que: Muda a borda para azul/roxo
+       Como: Sobrescreve a cor da borda
+       Por que: Indica que o botão é interativo
+    */
+}
+
+.filter-btn.active {
+    /* 
+       O que: Estilo do filtro atualmente selecionado
+       Como: Classe "active" adicionada pelo JavaScript
+       Por que: Mostra qual filtro está ativo
+    */
+    background: #667eea;
+    /* Fundo azul/roxo quando ativo */
+    
+    color: white;
+    /* Texto branco para contraste */
+    
+    border-color: #667eea;
+    /* Borda da mesma cor do fundo */
+}
+
+/* ==============================================
+   LISTA DE TAREFAS
+   ============================================== */
+
+#taskList {
+    /* 
+       O que: Container da lista onde as tarefas aparecem
+       Como: Estiliza o elemento <ul> com id="taskList"
+       Por que: Prepara o espaço para receber as tarefas
+    */
+    list-style: none;
+    /* 
+       O que: Remove os bullets (bolinhas) padrão da lista
+       Como: list-style: none
+       Por que: Lista de tarefas não precisa de marcadores
+    */
+    
+    margin-bottom: 20px;
+    /* Espaço abaixo da lista */
+    
+    min-height: 100px;
+    /* 
+       O que: Altura mínima de 100px
+       Como: min-height garante que não fique menor que isso
+       Por que: Mantém espaço visual mesmo sem tarefas
+    */
+}
+
+/* ==============================================
+   ITEM DE TAREFA INDIVIDUAL
+   ============================================== */
+
+.task-item {
+    /* 
+       O que: Cada tarefa individual na lista
+       Como: Classe aplicada a cada <li> criado pelo JavaScript
+       Por que: Define aparência de uma tarefa
+    */
+    display: flex;
+    /* Flexbox para alinhar checkbox, texto e botão */
+    
+    align-items: center;
+    /* 
+       O que: Alinha verticalmente no centro
+       Como: align-items: center no Flexbox
+       Por que: Mantém checkbox, texto e botão alinhados
+    */
+    
+    padding: 15px;
+    /* Espaçamento interno para respiração */
+    
+    background: #f8f9fa;
+    /* Fundo cinza bem claro */
+    
+    border-radius: 8px;
+    /* Cantos arredondados */
+    
+    margin-bottom: 10px;
+    /* Espaço entre as tarefas */
+    
+    transition: all 0.3s;
+    /* Animação suave para mudanças */
+    
+    animation: slideIn 0.3s ease;
+    /* 
+       O que: Animação quando a tarefa é criada
+       Como: animation: nome duração suavização
+       Por que: Efeito visual ao adicionar nova tarefa
+    */
+}
+
+@keyframes slideIn {
+    /* 
+       O que: Define a animação slideIn
+       Como: Keyframes de início (from) e fim (to)
+       Por que: Cria efeito de deslizar para baixo
+    */
+    from {
+        /* Estado inicial */
+        opacity: 0;
+        /* Invisível */
+        transform: translateY(-10px);
+        /* 10px acima da posição final */
+    }
+    to {
+        /* Estado final */
+        opacity: 1;
+        /* Totalmente visível */
+        transform: translateY(0);
+        /* Posição original */
+    }
+}
+
+.task-item:hover {
+    /* 
+       O que: Efeito ao passar o mouse sobre uma tarefa
+       Como: Pseudo-classe :hover
+       Por que: Feedback visual de interação
+    */
+    background: #e9ecef;
+    /* Escurece levemente o fundo */
+    
+    transform: translateX(5px);
+    /* 
+       O que: Move 5px para a direita
+       Como: transform: translateX(deslocamento)
+       Por que: Efeito visual de "levantamento"
+    */
+}
+
+/* ==============================================
+   TAREFA CONCLUÍDA
+   ============================================== */
+
+.task-item.completed {
+    /* 
+       O que: Estilo para tarefas marcadas como concluídas
+       Como: Classe "completed" adicionada pelo JavaScript
+       Por que: Diferencia visualmente tarefas completas
+    */
+    opacity: 0.6;
+    /* 
+       O que: Reduz a opacidade para 60%
+       Como: opacity de 0 (invisível) a 1 (opaco)
+       Por que: Tarefa concluída fica mais "apagada"
+    */
+}
+
+.task-item.completed .task-text {
+    /* 
+       O que: Estilo do texto dentro de tarefas concluídas
+       Como: Seletor de descendente (.completed .task-text)
+       Por que: Aplica riscado apenas ao texto
+    */
+    text-decoration: line-through;
+    /* 
+       O que: Risca o texto no meio
+       Como: text-decoration: line-through
+       Por que: Indicação visual universal de "completo"
+    */
+    
+    color: #6c757d;
+    /* 
+       O que: Muda a cor do texto para cinza
+       Como: Sobrescreve a cor padrão
+       Por que: Reduz importância visual da tarefa completa
+    */
+}
+
+/* ==============================================
+   ELEMENTOS DENTRO DA TAREFA
+   ============================================== */
+
+.task-checkbox {
+    /* 
+       O que: Checkbox para marcar tarefa como concluída
+       Como: Estiliza o input type="checkbox"
+       Por que: Personaliza a aparência do checkbox
+    */
+    width: 20px;
+    height: 20px;
+    /* Define tamanho fixo de 20x20 pixels */
+    
+    margin-right: 15px;
+    /* 
+       O que: Espaço de 15px à direita do checkbox
+       Como: margin-right
+       Por que: Separa o checkbox do texto da tarefa
+    */
+    
+    cursor: pointer;
+    /* Cursor de mãozinha ao passar o mouse */
+    
+    accent-color: #667eea;
+    /* 
+       O que: Define a cor do checkbox quando marcado
+       Como: Propriedade CSS moderna accent-color
+       Por que: Personaliza a cor padrão azul do navegador
+    */
+}
+
+.task-text {
+    /* 
+       O que: Texto da tarefa
+       Como: Span que contém o texto digitado pelo usuário
+       Por que: Estiliza o conteúdo da tarefa
+    */
+    flex: 1;
+    /* 
+       O que: Ocupa todo o espaço disponível
+       Como: flex: 1 faz o texto crescer
+       Por que: Texto fica entre checkbox e botão, ocupando o espaço
+    */
+    
+    font-size: 16px;
+    /* Tamanho da fonte confortável para leitura */
+    
+    color: #333;
+    /* Cor cinza escuro */
+    
+    word-break: break-word;
+    /* 
+       O que: Quebra palavras longas se necessário
+       Como: word-break: break-word
+       Por que: Evita que textos longos estourem o layout
+    */
+}
+
+.delete-btn {
+    /* 
+       O que: Botão de deletar tarefa
+       Como: Estiliza o button com classe "delete-btn"
+       Por que: Cria botão vermelho de exclusão
+    */
+    padding: 6px 12px;
+    /* Espaçamento interno menor (botão secundário) */
+    
+    background: #dc3545;
+    /* 
+       O que: Cor vermelha de fundo
+       Como: #dc3545 = vermelho Bootstrap
+       Por que: Vermelho indica ação destrutiva (deletar)
+    */
+    
+    color: white;
+    /* Texto branco para contraste */
+    
+    border: none;
+    /* Remove borda padrão */
+    
+    border-radius: 5px;
+    /* Cantos arredondados */
+    
+    cursor: pointer;
+    /* Cursor de mãozinha */
+    
+    font-size: 14px;
+    /* Fonte um pouco menor */
+    
+    transition: background 0.3s;
+    /* Animação suave na cor de fundo */
+}
+
+.delete-btn:hover {
+    /* 
+       O que: Efeito ao passar o mouse sobre o botão deletar
+       Como: Pseudo-classe :hover
+       Por que: Feedback visual antes de deletar
+    */
+    background: #c82333;
+    /* 
+       O que: Vermelho mais escuro
+       Como: Tom mais escuro de vermelho
+       Por que: Indica interação com o botão
+    */
+}
+
+/* ==============================================
+   RODAPÉ (CONTADOR E BOTÃO LIMPAR)
+   ============================================== */
+
+.footer {
+    /* 
+       O que: Rodapé com informações e ações
+       Como: Usa Flexbox para distribuir conteúdo
+       Por que: Organiza contador à esquerda e botão à direita
+    */
+    display: flex;
+    
+    justify-content: space-between;
+    /* 
+       O que: Distribui elementos nas extremidades
+       Como: space-between = um na esquerda, outro na direita
+       Por que: Maximiza espaço entre contador e botão
+    */
+    
+    align-items: center;
+    /* Alinha verticalmente no centro */
+    
+    padding-top: 15px;
+    /* Espaço acima do rodapé */
+    
+    border-top: 2px solid #e0e0e0;
+    /* 
+       O que: Linha separadora acima do rodapé
+       Como: border-top com cor cinza clara
+       Por que: Divide visualmente a lista do rodapé
+    */
+}
+
+#taskCount {
+    /* 
+       O que: Contador de tarefas ativas
+       Como: Estiliza o span com id="taskCount"
+       Por que: Mostra informação discreta
+    */
+    color: #6c757d;
+    /* Cor cinza média */
+    
+    font-size: 14px;
+    /* Fonte pequena (informação secundária) */
+}
+
+#clearCompleted {
+    /* 
+       O que: Botão para limpar tarefas concluídas
+       Como: Estiliza o button com id="clearCompleted"
+       Por que: Cria botão secundário com borda
+    */
+    padding: 8px 15px;
+    /* Espaçamento interno */
+    
+    background: transparent;
+    /* 
+       O que: Fundo transparente
+       Como: background: transparent
+       Por que: Botão secundário, menos destaque
+    */
+    
+    color: #dc3545;
+    /* Texto vermelho */
+    
+    border: 1px solid #dc3545;
+    /* 
+       O que: Borda vermelha de 1px
+       Como: border: largura estilo cor
+       Por que: Define os limites e cor do botão
+    */
+    
+    border-radius: 5px;
+    /* Cantos arredondados */
+    
+    cursor: pointer;
+    /* Cursor de mãozinha */
+    
+    font-size: 14px;
+    /* Fonte pequena */
+    
+    transition: all 0.3s;
+    /* Animação suave em todas as propriedades */
+}
+
+#clearCompleted:hover {
+    /* 
+       O que: Efeito ao passar o mouse sobre "Limpar concluídas"
+       Como: Pseudo-classe :hover
+       Por que: Inverte as cores para dar feedback
+    */
+    background: #dc3545;
+    /* Fundo vermelho */
+    
+    color: white;
+    /* Texto branco */
+}
+
+/* ==============================================
+   ESTADO VAZIO
+   ============================================== */
+
+.empty-state {
+    /* 
+       O que: Mensagem quando não há tarefas
+       Como: Classe aplicada pelo JavaScript quando lista vazia
+       Por que: Informa ao usuário que a lista está vazia
+    */
+    text-align: center;
+    /* Centraliza o texto */
+    
+    color: #6c757d;
+    /* Cor cinza média */
+    
+    padding: 40px;
+    /* Espaçamento generoso ao redor */
+    
+    font-size: 18px;
+    /* Fonte média */
+}
+
+/* ==============================================
+   DESIGN RESPONSIVO PARA MOBILE
+   ============================================== */
+
+@media (max-width: 600px) {
+    /* 
+       O que: Regras CSS aplicadas apenas em telas menores que 600px
+       Como: Media query com largura máxima
+       Por que: Adapta o layout para celulares e tablets pequenos
+    */
+    
+    .container {
+        padding: 20px;
+        /* 
+           O que: Reduz padding em telas pequenas
+           Como: Sobrescreve o padding de 30px
+           Por que: Aproveita melhor o espaço limitado
+        */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        /* 
+           O que: Reduz tamanho do título
+           Como: De 2rem para 1.5rem
+           Por que: Evita que o título fique muito grande
+        */
+    }
+
+    .input-section {
+        flex-direction: column;
+        /* 
+           O que: Empilha input e botão verticalmente
+           Como: flex-direction: column (padrão é row)
+           Por que: Em telas estreitas, lado a lado fica apertado
+        */
+    }
+
+    #addBtn {
+        width: 100%;
+        /* 
+           O que: Botão ocupa 100% da largura
+           Como: width: 100%
+           Por que: Fica mais fácil clicar em telas sensíveis ao toque
+        */
+    }
+
+    .filters {
+        flex-wrap: wrap;
+        /* 
+           O que: Permite que os filtros quebrem linha se necessário
+           Como: flex-wrap: wrap
+           Por que: Se não couberem lado a lado, vão para linha seguinte
+        */
+    }
+}
